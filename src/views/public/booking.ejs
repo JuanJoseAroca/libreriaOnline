@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <%- include('../templates/head.ejs') -%>
+    <body class="bg-primary">
+		<%- include('../templates/header.ejs') -%>
+
+        <div class="banner position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center text-white bg-light">
+			<div class="col-md-5 mx-auto">
+			  <h1 class="display-4 font-weight-bold">Librería universitaria</h1>
+			  <p class="lead font-weight-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, vitae.</p>
+			</div>
+		  </div>
+
+        <div class="container-fluid mt-5">
+			<div class="row mt-3">
+				<div class="col"></div>
+				<div class="col-8 row justify-content-around bg-light py-3 rounded user-select-none mb-5">
+					<h2 class="col-12 font-weight-bold mb-4">En reserva <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bascket3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z"/></svg>
+					</h2>
+					<h5 class="col-4 my-auto bg-white rounded-left py-1">Producto</h5>
+					<h5 class="col-2 my-auto bg-white py-1">Tipo</h5>
+					<h5 class="col-2 my-auto bg-white py-1 text-center">Cantidad</h5>
+					<h5 class="col-2 my-auto bg-white py-1">Precio</h5>
+					<h5 class="col-2 my-auto bg-white rounded-right py-1">Sub-total</h5>
+					<% if (booking) { %>
+						<% let total = 0 %>
+						<% for(let product of booking) { %>
+								<% let price = products.find( ({id, size}) => id == product.id && size == product.size).price %>
+								<img class="col-1 float-left mt-3" src="/public/images/products/<%= product.id %>-1.jpg">
+								<h5 class="col-3 my-auto"><%= products.find( ({id}) => id == product.id).title %></h5>
+								<h5 class="col-2 my-auto"><%= product.size %></h5>
+								<h5 class="col-2 my-auto text-center" data-product="<%= product.id %>" data-size="<%= product.size %>">
+									<svg role="button" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-left-fill" fill="crimson" xmlns="http://www.w3.org/2000/svg">
+										<path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+									</svg>
+									<span id="counter-<%= product.size + product.id %>"><%= product.quantity %></span>
+									<svg role="button" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="crimson" xmlns="http://www.w3.org/2000/svg">
+										<path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+									</svg>
+								</h5>
+								<h5 class="col-2 my-auto">€<span id="unityPrice-<%= product.size + product.id %>"><%= price %></span></h5>
+								<h5 class="col-2 my-auto">€<span id="totalPrice-<%= product.size + product.id %>"><%= price * product.quantity %></span></h5>
+								<% total += price * product.quantity %>
+						<% } %>
+								<div class="col-10"></div>
+								<h5 class="col-2 bg-white rounded  py-1">Total</h5>
+								<div class="col-10"></div>
+								<h5 class="col-2">€<span id="bookingTotal"><%= total %></span></h5>
+								<form method="GET" action="/checkout" class="col-12">
+									
+								</form>
+						<% } else { %>
+							<h2 class="col-12 text-center text-white my-5 py-3 rounded bg-secondary">No hay productos en la reserva</h2>
+						<% } %>
+				</div>
+				<div class="col"></div>
+			</div>
+		</div>
+		<script src="/public/js/bookingPage.js"></script>
+    </body>
+</html>

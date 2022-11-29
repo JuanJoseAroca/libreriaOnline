@@ -1,0 +1,23 @@
+extends layout/main.pug
+
+append content
+    h2.col-12.mt-5 Crear usuario con privilegios administrativos
+    hr
+    form(method="POST" action="/dashboard/account/store")
+        .row.justify-content-center.mt-5
+            table.table.col-10
+                thead
+                    tr
+                    th(scope='col') Nombre completo
+                    th(scope='col') Correo
+                    th(scope='col') Contraseña
+                        .badge.badge-danger.ml-1 Contraseña
+                tbody
+                    tr
+                    th
+                        input(type="text" name="name" value=" ")
+                    th
+                        input(type="email" name="email" value=" ")
+                    th
+                        input(type="password" name="password" value="")
+        input(type="submit").btn-lg.btn-primary.col-3.mt-4

@@ -1,0 +1,94 @@
+extends layout/main.pug
+
+append content
+    h2.col-12.mt-5 Agregar Libro : 
+    hr
+    form(method="POST" action="/dashboard/product/store" enctype="multipart/form-data")
+        .row.justify-content-center.mt-5
+                table.table.col-10
+                    thead
+                        tr
+                        th(scope='col') Titulo
+                        th(scope='col') Descripcion
+                        th(scope='col') Año de publicación
+                    tbody
+                        tr
+                        td
+                            input(value="" name="title" id="title")
+                        td
+                            textarea(value="" name="description" rows="4").col-12=""  
+                        td
+                            input(value="" name="year")
+                    thead
+                        tr 
+                        th(scope='col') Autor
+                        th(scope='col') Numero de paginas
+                    tbody
+                        tr
+                        td
+                            input(value="" name="autor")
+                        td
+                            input(value="" type="number" min="1" name="num_pages")
+        .row.justify-content-center.mt-5
+                input(type="hidden" value="" name="id")
+                table.table.col-10
+                    thead
+                        tr
+                        th(scope='col') Ingrese Editorial  
+                        th(scope='col') Ingrese ISSN
+                        th(scope='col') Fecha de publicacion
+                    tbody
+                        tr
+                        td
+                           input(value="" name="editorial") 
+                        td
+                            input(value="" name="issn")
+                        td
+                            input(value="" type="date" name="publication_date")
+        .row.justify-content-center.mt-5
+            table.table.col-10
+                thead
+                    tr
+                    th(scope='col') Idioma 
+                    th(scope='col') Genero literario
+                    th(scope='col') Categoría
+                tbody
+                        td
+                           input(value="" name="language") 
+                        td
+                           input(value="" name="gender") 
+                        td
+                           input(value="" name="category")   
+            table.table.col-10
+                h2.col-12.text-center Formatos y precios
+                thead
+                    tr
+                    th(scope='col') Tipo
+                    th(scope='col') Precio (COP)
+                    th(scope='col') Stock
+                tbody
+                    tr
+                    td  NUEVO
+                    td
+                        - var price = "price_NUEVO"
+                        input(type="number"  value="" name=price)
+                    td
+                        - var stock = "stock_NUEVO"
+                        input(type="number" value="" name=stock)
+                    tr
+                    td  USADO
+                    td
+                        - var price = "price_USADO"
+                        input(type="number"  value="" name=price)
+                    td
+                        - var stock = "stock_USADO"
+                        input(type="number" value="" name=stock)
+                    tr
+                    td  DIGITAL
+                    td
+                        - var price = "price_DIGITAL"
+                        input(type="number"  value="" name=price)
+                    td
+                        - var stock = "stock_DIGITAL"
+                        input(type="number" value="" name=stock)                  
+            input(type="submit").btn-lg.btn-primary.col-10.mt-2.mb-5

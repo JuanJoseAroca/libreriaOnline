@@ -1,0 +1,30 @@
+extends layout/main.pug
+
+append content
+    h2.col-12.mt-5 Cuentas
+    hr
+    a(class='button' href='/dashboard/acounts/add').btn-lg.btn-primary.col-10.mt-2.mb-5 Agregar Empleado
+    hr
+    .row.justify-content-center.mt-5
+        
+        table.table.col-10.mt-5
+            if !users
+                h3.badge-danger.p-3.rounded No hay usuarios con privilegios administrativos
+            else
+                thead
+                    tr
+                    th(scope='col') #
+                    th(scope='col') Nombre completo
+                    th(scope='col') Correo
+                    th(scope='col') Rol
+                    th(scope='col') Editar
+                tbody
+                    each user in users
+                        tr
+                        th(scope='row')= user.id
+                        td= user.name
+                        td= user.email
+                        td= user.user_type
+                        td(role="button")
+                            - var editHref = "/dashboard/accounts/edit?id="+user.id
+                            a(href=editHref) ✏️

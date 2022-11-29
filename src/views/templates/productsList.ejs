@@ -1,0 +1,15 @@
+<% if (products) { %>
+    <% for (let i=0 ; i < products.length; i++) { %>
+        <div class="card mt-5 mr-2 col-3">
+            <img src="public/images/products/<%= products[i].id %>-1.jpg" class="card-img-top" alt="book photo">
+            <div class="card-body">
+                <h5 class="card-title"><%= products[i].title %></h5>
+                <p class="card-text">Autor: <%= products[i].autor %></p>
+                <p class="card-text">Género: <%= products[i].gender %></p>
+                <a href="/order?p=<%= products[i].id %>" class="btn btn-info">Ver libro</a>
+            </div>
+        </div>
+    <% } %>
+<% } else { %>
+    false
+<% } %>
