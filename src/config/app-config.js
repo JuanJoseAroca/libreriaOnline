@@ -10,8 +10,7 @@ const config = {
         user: process.env.DB_USER || 'root',
         password: process.env.DB_PASS || '',
         database: process.env.DB_NAME || 'lib',
-        port: process.env.DB_PORT,
-        charset : 'utf8mb4'
+        port: process.env.DB_PORT
     },
     'populateCon' : {
         host: process.env.DB_HOST || 'localhost',
@@ -19,7 +18,6 @@ const config = {
         password: process.env.DB_PASS || '',
         database: process.env.DB_NAME || 'lib',
         port: process.env.DB_PORT,
-        charset : 'utf8mb4',
         multipleStatements: true
     }
 }
