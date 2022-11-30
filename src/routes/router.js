@@ -29,5 +29,6 @@ process.on("unhandledRejection", err => {
     console.log("---------------")
 })
 
+const PORT = process.env.PORT || 5000
 // server initialization
-app.listen(process.env.PORT, () => console.log('Server is running'));
+app.listen(PORT, () => console.log('Server is running'));
