@@ -6,17 +6,19 @@ const config = {
     'views' : path.join(__dirname , '/../views'),
     'controllers' : path.join(__dirname , '/../controllers'),
     'sqlCon' : {
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "lib",
+        host: procces.ENV.DB_HOST,
+        user: procces.ENV.DB_USER,
+        password: procces.ENV.DB_PASS,
+        database: procces.ENV.DB_NAME,
+        port: procces.ENV.DB_PORT,
         charset : 'utf8mb4'
     },
     'populateCon' : {
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "lib",
+        host: procces.ENV.DB_HOST,
+        user: procces.ENV.DB_USER,
+        password: procces.ENV.DB_PASS,
+        database: procces.ENV.DB_NAME,
+        port: procces.ENV.DB_PORT,
         charset : 'utf8mb4',
         multipleStatements: true
     }

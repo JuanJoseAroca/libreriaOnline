@@ -1,3 +1,5 @@
+
+
 // config variables
 const config = require('../config/app-config.js');
 
@@ -28,4 +30,4 @@ process.on("unhandledRejection", err => {
 })
 
 // server initialization
-app.listen(5000, () => console.log('Server is running'));
+app.listen(procces.ENV.PORT, () => console.log('Server is running'));
