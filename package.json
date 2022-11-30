@@ -30,9 +30,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "node": "nodemon src/routes/router.js",
-    "database": "node src/database/populate.js",
-    "start": "src/views/public/index.ejs"
+    "start": "nodemon src/routes/router.js",
+    "database": "node src/database/populate.js"
   },
   "repository": {
     "type": "git",
