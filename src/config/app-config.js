@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config();
+
 
 const config = {
     'root' : path.join(__dirname , '/../../'),
@@ -10,7 +10,8 @@ const config = {
         user: process.env.DB_USER || 'root',
         password: process.env.DB_PASS || '',
         database: process.env.DB_NAME || 'lib',
-        port: process.env.DB_PORT
+        port: process.env.DB_PORT, 
+        multipleStatements: true
     },
     'populateCon' : {
         host: process.env.DB_HOST || 'localhost',
