@@ -31,7 +31,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/routes/router.js",
-    "start": "node src/routes/router.js",
+    "start": "nodemon src/routes/router.js",
     "database": "node src/database/populate.js"
   },
   "repository": {
