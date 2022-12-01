@@ -22,9 +22,9 @@ const csurf = require('csurf');
 
 // global middleware
 router.use(session({
-    name: process.env.SESSION_NAME,
-    key: process.env.SESSION_KEY,
-    secret: process.env.SESSION_SECRET,
+    name: "juan",
+    key: "123",
+    secret: "1234556",
     store: sessionStore,
     resave: false,
     saveUninitialized: false
