@@ -11,8 +11,8 @@ const User = new UsersController();
 // required libraries
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-//const MySQLStore = require('express-mysql-session')(session);
-//const sessionStore = new MySQLStore(config.sqlCon);
+const MySQLStore = require('express-mysql-session')(session);
+const sessionStore = new MySQLStore(config.sqlCon);
 const bodyParser = require('body-parser')
 const flash = require('express-flash');
 const passport = require('passport');
@@ -25,6 +25,7 @@ router.use(session({
     name: "juan",
     key: "123",
     secret: "1234556",
+    store: sessionStore,
     resave: false,
     saveUninitialized: false
 }))
